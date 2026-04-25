@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wahidul Hasan | Creative Visualizer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#d0bcff",
+                      "secondary-container": "#571bc1",
+                      "outline-variant": "#464554",
+                      "surface-container-lowest": "#040e1f",
+                      "on-error": "#690005",
+                      "on-tertiary": "#003731",
+                      "background": "#081425",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#c7c4d7",
+                      "primary-fixed": "#e1e0ff",
+                      "on-tertiary-container": "#000705",
+                      "on-primary-fixed": "#07006c",
+                      "on-secondary-fixed": "#23005c",
+                      "outline": "#908fa0",
+                      "surface-tint": "#c0c1ff",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed": "#e9ddff",
+                      "primary": "#c0c1ff",
+                      "on-secondary-container": "#c4abff",
+                      "surface": "#081425",
+                      "tertiary-fixed-dim": "#3cddc7",
+                      "surface-container-high": "#1f2a3c",
+                      "surface-container-low": "#111c2d",
+                      "on-secondary": "#3c0091",
+                      "on-tertiary-fixed-variant": "#005047",
+                      "on-tertiary-fixed": "#00201c",
+                      "error-container": "#93000a",
+                      "primary-container": "#8083ff",
+                      "tertiary-fixed": "#62fae3",
+                      "on-primary-container": "#0d0096",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-primary": "#1000a9",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "inverse-surface": "#d8e3fb",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "tertiary-container": "#008678",
+                      "inverse-primary": "#494bd6",
+                      "tertiary": "#3cddc7",
+                      "surface-container-highest": "#2a3548",
+                      "on-surface": "#d8e3fb",
+                      "surface-bright": "#2f3a4c",
+                      "on-background": "#d8e3fb",
+                      "surface-container": "#152031",
+                      "surface-dim": "#081425",
+                      "inverse-on-surface": "#263143",
+                      "surface-variant": "#2a3548"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter", "sans-serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Manrope", "sans-serif"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #081425;
+            color: #d8e3fb;
+            overflow-x: hidden;
+        }
+        .ethereal-gradient {
+            background: linear-gradient(135deg, #c0c1ff 0%, #8083ff 100%);
+        }
+        .glass-panel {
+            background: rgba(21, 32, 49, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .bezier-transition {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .luminous-scroll {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(to bottom, transparent, #c0c1ff, transparent);
+            z-index: 100;
+            opacity: 0.3;
+        }
+        .ghost-border {
+            border: 1px solid rgba(70, 69, 84, 0.15);
+        }
+        
+        /* Scroll Reveal Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary selection:text-on-primary-container">
+<!-- Luminous Scroll Indicator -->
+<div class="luminous-scroll hidden lg:block"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#152031]/70 backdrop-blur-2xl border-b border-[#464554]/15 shadow-[0_20px_50px_rgba(4,14,31,0.4)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
+<div class="text-xl font-black tracking-tighter text-[#d8e3fb] font-headline">
+                Wahidul Hasan
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#expertise">Expertise</a>
+<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#experience">Experience</a>
+<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#education">Education</a>
+<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#projects">Projects</a>
+</nav>
+<button class="px-6 py-2.5 rounded-full ethereal-gradient text-on-primary-container font-bold tracking-tight active:scale-95 transform transition-transform text-sm md:text-base">
+                Contact Me
+            </button>
+</div>
+</header>
+<main class="relative pt-32 lg:pt-2">
+<!-- Hero Section -->
+<section class="relative py-20 lg:py-32 overflow-hidden reveal-on-scroll" id="hero">
+<div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute top-60 -right-20 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-8">
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-32">
+<div class="flex-1 text-center lg:text-left z-10">
+<span class="inline-block font-label text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6">Visualizer</span>
+<h1 class="text-5xl lg:text-8xl font-black font-headline text-on-surface leading-[1.05] tracking-tighter mb-8">
+                        Wahidul <br class="hidden lg:block"/> Hasan
+                    </h1>
+<p class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl mb-12">
+                        A digital curator for the ethereal age.
+                    </p>
+<div class="flex flex-wrap items-center justify-center lg:justify-start gap-6">
+<a class="px-8 py-4 rounded-xl ethereal-gradient text-on-primary-container font-bold bezier-transition shadow-lg shadow-primary/20 hover:scale-105" href="#projects">View Projects</a>
+<a class="px-8 py-4 rounded-xl border border-outline-variant/30 text-on-surface font-medium hover:bg-surface-container-high bezier-transition hover:scale-105" href="https://www.behance.net/wahiiidhasan" target="_blank">Behance</a>
+</div>
+</div>
+<div class="relative flex-1 group">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-90 group-hover:scale-100 bezier-transition"></div>
+<div class="relative ml-10 w-72 h-72 lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden border-2 border-primary/20 p-4">
+<img alt="Portrait of Wahidul Hasan" class="w-full h-full object-cover rounded-full  bezier-transition duration-700" data-alt="Close-up portrait of a professional male visual designer in minimal dark clothing against a textured deep blue studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwO72rqScvWY59rraMd4K7OAlNn3y1iHlqfiK97N06XUNinNIo2S67rKKdhyfeTqiT4aGrHg7Erbto4FFWqtxTlbTu3saV_W714BpMLewMeggANW5urPw6kiHyJmtlhLYnHRuJZDftCjgeszQPsTlh4CYvqDpITZg8nZbsYz5MLdKdABQnt3OGWnDe2-y-6xLpvbbw_gSo4w5JWyP3vrUfeDegOA5KnVhLhZHCKnmpNbYTOXiaST2pDt9Rq3Z-MXz6Uf-1Rjt5tKNh"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Arsenal Section -->
+<section class="py-20 relative bg-surface-container-low/50 reveal-on-scroll" id="arsenal">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-black font-headline tracking-tighter mb-4 text-on-surface">Digital Arsenal</h2>
+<div class="h-1 w-16 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="flex flex-wrap justify-center items-stretch gap-6">
+<div class="group bg-surface-container rounded-2xl p-6 ghost-border flex flex-col items-center justify-center w-40 h-40 hover:bg-surface-container-high hover:-translate-y-2 bezier-transition">
+<img alt="Photoshop" class="w-16 h-16 mb-4  bezier-transition" src="img/photoshop.png"/>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">Photoshop</span>
+</div>
+<div class="group bg-surface-container rounded-2xl p-6 ghost-border flex flex-col items-center justify-center w-40 h-40 hover:bg-surface-container-high hover:-translate-y-2 bezier-transition">
+<img alt="Illustrator" class="w-16 h-16 mb-4  bezier-transition" src="img/illustrator.png"/>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">Illustrator</span>
+</div>
+<div class="group bg-surface-container rounded-2xl p-6 ghost-border flex flex-col items-center justify-center w-40 h-40 hover:bg-surface-container-high hover:-translate-y-2 bezier-transition">
+<img alt="Premiere Pro" class="w-16 h-16 mb-4  bezier-transition" src="img/premiere.png"/>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">Premiere Pro</span>
+</div>
+<div class="group bg-surface-container rounded-2xl p-6 ghost-border flex flex-col items-center justify-center w-40 h-40 hover:bg-surface-container-high hover:-translate-y-2 bezier-transition">
+<img alt="After Effects" class="w-16 h-16 mb-4  bezier-transition" src="img/effects.png"/>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">After Effects</span>
+</div>
+<div class="group bg-surface-container rounded-2xl p-6 ghost-border flex flex-col items-center justify-center w-40 h-40 hover:bg-surface-container-high hover:-translate-y-2 bezier-transition">
+<img alt="Figma" class="w-16 h-16 mb-4  bezier-transition" src="img/figma.png"/>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">Figma</span>
+</div>
+<div class="group relative bg-surface-container rounded-2xl p-6 border border-primary/30 flex flex-col items-center justify-center w-40 h-40 hover:bg-primary/10 hover:-translate-y-2 bezier-transition overflow-hidden">
+<div class="absolute inset-0 bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 bezier-transition"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 z-10 group-hover:scale-110 bezier-transition">auto_awesome</span>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary z-10 text-center">Generative<br/>AI</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-24 bg-surface-container-low reveal-on-scroll" id="projects">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+<div>
+<h2 class="text-4xl lg:text-6xl font-black font-headline tracking-tighter mb-4 text-on-surface">Selected Work</h2>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-widest">Case studies &amp; Design Systems</p>
+</div>
+<div class="h-[2px] flex-1 mx-12 bg-outline-variant/10 hidden lg:block mb-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- Project 1 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden ghost-border bezier-transition hover:-translate-y-4 shadow-2xl shadow-black/50">
+<div class="aspect-[4/4] overflow-hidden">
+<img alt="Project Thumbnail" class="w-full h-full mb-4 object-cover group-hover:scale-105 bezier-transition duration-700" data-alt="Minimalist dashboard UI with vibrant blue data visualizations and sleek typography on a dark screen background" src="img/Vivasoft 2.jpg"/>
+</div>
+<div class="p-8">
+<span class="font-label text-xs uppercase tracking-widest text-primary mb-3 block">SEO FEATUERD IMAGES</span>
+<h3 class="text-2xl font-bold font-headline mb-4 group-hover:text-primary bezier-transition">SEO-Optimized Blog Visuals</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">High-performing visuals designed for search visibility, improved click-through rates, and consistent branding across Google Images and AI Overviews.</p>
+<a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:gap-4 bezier-transition text-on-surface hover:text-primary" href="#">
+                                Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden ghost-border bezier-transition hover:-translate-y-4 shadow-2xl shadow-black/50 lg:translate-y-12 lg:hover:translate-y-8">
+<div class="aspect-[4/4] overflow-hidden">
+<img alt="Project Thumbnail" class="w-full h-full object-cover group-hover:scale-105 bezier-transition duration-700" data-alt="Conceptual branding guidelines book layout with modern sans-serif typography and indigo violet geometric patterns" src="img/Vivasoft 2.jpg"/>
+</div>
+<div class=" p-8">
+<span class="font-label text-xs uppercase tracking-widest text-primary mb-3 block">Brand Identity</span>
+<h3 class="text-2xl font-bold font-headline mb-4 group-hover:text-primary bezier-transition">Software Company Branding</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Complete visual overhaul for a cloud computing leader, emphasizing scalability and clarity through code-inspired geometry.</p>
+<a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:gap-4 bezier-transition text-on-surface hover:text-primary" href="#">
+                                Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden ghost-border bezier-transition hover:-translate-y-4 shadow-2xl shadow-black/50">
+<div class="aspect-[4/4] overflow-hidden">
+<img alt="Project Thumbnail" class="w-full h-full object-cover group-hover:scale-105 bezier-transition duration-700" data-alt="High-angle shot of a clean workspace with multiple screens displaying analytical charts and SEO metrics in a dark aesthetic" src="img/Vivasoft 2.jpg"/>
+</div>
+<div class="p-8">
+<span class="font-label text-xs uppercase tracking-widest text-primary mb-3 block">Visual Storytelling</span>
+<h3 class="text-2xl font-bold font-headline mb-4 group-hover:text-primary bezier-transition">Social Media Content</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">A collection of custom-tailored graphics designed to enhance narrative flow and user engagement across technical platforms.</p>
+<a class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group-hover:gap-4 bezier-transition text-on-surface hover:text-primary" href="#">
+                                Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brands I've Worked With Section -->
+<section class="py-24 bg-surface-container-highest/20 overflow-hidden reveal-on-scroll" id="brands">
+<div class="max-w-7xl mx-auto px-8 mb-12">
+<div class="text-center">
+<h2 class="text-2xl lg:text-3xl font-bold font-headline tracking-tight text-on-surface-variant uppercase">Brands I've Worked With</h2>
+</div>
+</div>
+<div class="relative w-full overflow-hidden flex items-center py-8 before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-background before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
+<div class="animate-marquee">
+<!-- First Set -->
+<div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-primary bezier-transition cursor-pointer">VIVASOFT</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#3cddc7] bezier-transition cursor-pointer">WEB KINGDOM</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#ffb4ab] bezier-transition cursor-pointer">MOJARU</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#c4abff] bezier-transition cursor-pointer">10 MINUTE SCHOOL</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-primary bezier-transition cursor-pointer">NEXUS CO</div>
+</div>
+<!-- Second Set (Duplicate for loop) -->
+<div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-primary bezier-transition cursor-pointer">VIVASOFT</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#3cddc7] bezier-transition cursor-pointer">WEB KINGDOM</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#ffb4ab] bezier-transition cursor-pointer">MOJARU</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-[#c4abff] bezier-transition cursor-pointer">10 MINUTE SCHOOL</div>
+<div class="text-3xl font-black font-headline text-on-surface grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:text-primary bezier-transition cursor-pointer">NEXUS CO</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-32 relative overflow-hidden reveal-on-scroll" id="expertise">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<h2 class="text-4xl lg:text-7xl font-black font-headline tracking-tighter mb-6 text-on-surface">Skills &amp; Tools</h2>
+<div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-10 bg-surface-container-high rounded-xl ghost-border flex flex-col items-center text-center bezier-transition hover:-translate-y-3 hover:bg-surface-bright hover:shadow-2xl hover:shadow-primary/10 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-125 group-hover:rotate-12 bezier-transition">pentagon</span>
+<h4 class="text-xl font-bold font-headline mb-2">Brand Identity</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Systematic visual languages that define market presence.</p>
+</div>
+<div class="p-10 bg-surface-container-high rounded-xl ghost-border flex flex-col items-center text-center bezier-transition hover:-translate-y-3 hover:bg-surface-bright hover:shadow-2xl hover:shadow-primary/10 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-125 group-hover:rotate-12 bezier-transition">auto_awesome</span>
+<h4 class="text-xl font-bold font-headline mb-2">Visual Storytelling</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Narrative-driven graphics that simplify complex concepts.</p>
+</div>
+<div class="p-10 bg-surface-container-high rounded-xl ghost-border flex flex-col items-center text-center bezier-transition hover:-translate-y-3 hover:bg-surface-bright hover:shadow-2xl hover:shadow-primary/10 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-125 group-hover:rotate-12 bezier-transition">token</span>
+<h4 class="text-xl font-bold font-headline mb-2">Figma Master</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Building living design systems and fluid prototypes.</p>
+</div>
+<div class="p-10 bg-surface-container-high rounded-xl ghost-border flex flex-col items-center text-center bezier-transition hover:-translate-y-3 hover:bg-surface-bright hover:shadow-2xl hover:shadow-primary/10 group">
+<span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-125 group-hover:rotate-12 bezier-transition">layers</span>
+<h4 class="text-xl font-bold font-headline mb-2">Adobe Suite</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Expert manipulation across PS, AI, and ID.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-32 bg-surface-container-lowest reveal-on-scroll" id="experience">
+<div class="max-w-4xl mx-auto px-8">
+<div class="mb-20">
+<h2 class="text-4xl lg:text-6xl font-black font-headline tracking-tighter mb-4 text-on-surface text-center">Experience</h2>
+</div>
+<div class="space-y-12">
+<!-- Experience 1 -->
+<div class="relative flex gap-8 group">
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 group-hover:scale-150 bezier-transition"></div>
+<div class="flex-1 w-[2px] bg-outline-variant/30 mt-4 group-hover:bg-primary/50 bezier-transition"></div>
+</div>
+<div class="pb-12 border-b border-outline-variant/10 flex-1 group-hover:translate-x-2 bezier-transition">
+<span class="font-label text-xs font-bold text-primary tracking-widest uppercase">Current</span>
+<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Visualizer</h3>
+<p class="text-secondary font-medium mb-4">Vivasoft Limited</p>
+<p class="text-on-surface-variant leading-relaxed">Leading visual strategies for enterprise-grade software products and external branding campaigns.</p>
+</div>
+</div>
+<!-- Experience 2 -->
+<div class="relative flex gap-8 group">
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-outline-variant group-hover:bg-primary group-hover:scale-125 bezier-transition"></div>
+<div class="flex-1 w-[2px] bg-outline-variant/30 mt-4 group-hover:bg-primary/30 bezier-transition"></div>
+</div>
+<div class="pb-12 border-b border-outline-variant/10 flex-1 group-hover:translate-x-2 bezier-transition">
+<span class="font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase group-hover:text-primary/80 bezier-transition">2022 - 2023</span>
+<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Graphic Designer</h3>
+<p class="text-secondary font-medium mb-4">Web Kingdom</p>
+<p class="text-on-surface-variant leading-relaxed">Conceptualized UI elements and digital assets for high-traffic web applications.</p>
+</div>
+</div>
+<!-- Experience 3 -->
+<div class="relative flex gap-8 group">
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-outline-variant group-hover:bg-primary group-hover:scale-125 bezier-transition"></div>
+<div class="flex-1 w-[2px] bg-outline-variant/30 mt-4 group-hover:bg-primary/30 bezier-transition"></div>
+</div>
+<div class="pb-12 border-b border-outline-variant/10 flex-1 group-hover:translate-x-2 bezier-transition">
+<span class="font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase group-hover:text-primary/80 bezier-transition">2021 - 2022</span>
+<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Executive Designer</h3>
+<p class="text-secondary font-medium mb-4">Mojaru</p>
+<p class="text-on-surface-variant leading-relaxed">Managed end-to-end design pipelines for educational media and promotional content.</p>
+</div>
+</div>
+<!-- Experience 4 -->
+<div class="relative flex gap-8 group">
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-outline-variant group-hover:bg-primary group-hover:scale-125 bezier-transition"></div>
+</div>
+<div class="flex-1 group-hover:translate-x-2 bezier-transition">
+<span class="font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase group-hover:text-primary/80 bezier-transition">Previous</span>
+<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Designer</h3>
+<p class="text-secondary font-medium mb-4">10 Minute School</p>
+<p class="text-on-surface-variant leading-relaxed">Collaborated with content creators to build engaging visual assets for the largest edtech platform in the country.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="py-24 max-w-7xl mx-auto px-8 reveal-on-scroll" id="education">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="bg-surface-container-high p-12 rounded-xl ghost-border hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 bezier-transition">
+<h2 class="text-3xl font-black font-headline mb-8 text-on-surface">Academic Roots</h2>
+<div class="space-y-8">
+<div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Major in Graphic Design</p>
+<h4 class="text-xl font-bold">Bachelor of Fine Arts (BFA)</h4>
+<p class="text-on-surface-variant text-sm mt-1">Focusing on modern visual communication and digital layout theories.</p>
+</div>
+</div>
+</div>
+<div class="hover:translate-x-4 bezier-transition">
+<h3 class="text-4xl lg:text-5xl font-black font-headline tracking-tighter leading-tight mb-6">Continuous learning in the digital frontier.</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Education isn't just about the degree; it's about the relentless pursuit of new techniques and the evolution of a creative perspective.</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 relative reveal-on-scroll" id="contact">
+<div class="max-w-4xl mx-auto px-8 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-4xl lg:text-7xl font-black font-headline tracking-tighter mb-4">Let's work together</h2>
+<p class="text-on-surface-variant">Available for collaborations and creative consulting.</p>
+</div>
+<div class="bg-surface-container p-8 lg:p-12 rounded-xl ghost-border glass-panel hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 bezier-transition">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant px-1">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline/50 p-4 transition-all" placeholder="Your Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant px-1">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline/50 p-4 transition-all" placeholder="hello@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant px-1">Your Message</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline/50 p-4 transition-all" placeholder="Tell me about your project..." rows="5"></textarea>
+</div>
+<button class="w-full py-4 rounded-xl ethereal-gradient text-on-primary-container font-black text-lg bezier-transition shadow-xl shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98]" type="submit">
+                            Send Message
+                        </button>
+</form>
+</div>
+</div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-64 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+</section>
+<!-- The Social Connection Section -->
+<section class="py-24 relative bg-surface-container-low/30 border-t border-outline-variant/10 reveal-on-scroll" id="social">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<h2 class="text-4xl lg:text-5xl font-black font-headline tracking-tighter mb-4 text-on-surface">The Social Connection</h2>
+<p class="text-on-surface-variant mb-12 font-label tracking-wide">Find me across the digital ether.</p>
+<div class="flex flex-wrap justify-center gap-6 md:gap-12">
+<a class="group flex flex-col items-center gap-4 hover:-translate-y-2 bezier-transition" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center ghost-border group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-lg group-hover:shadow-primary/30 bezier-transition">
+<span class="material-symbols-outlined text-3xl">brush</span>
+</div>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant group-hover:text-primary bezier-transition">Behance</span>
+</a>
+<a class="group flex flex-col items-center gap-4 hover:-translate-y-2 bezier-transition" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center ghost-border group-hover:bg-[#0A66C2] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#0A66C2]/30 bezier-transition">
+<span class="material-symbols-outlined text-3xl">work</span>
+</div>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant group-hover:text-[#0A66C2] bezier-transition">LinkedIn</span>
+</a>
+<a class="group flex flex-col items-center gap-4 hover:-translate-y-2 bezier-transition" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center ghost-border group-hover:bg-[#1877F2] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#1877F2]/30 bezier-transition">
+<span class="material-symbols-outlined text-3xl">public</span>
+</div>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant group-hover:text-[#1877F2] bezier-transition">Facebook</span>
+</a>
+<a class="group flex flex-col items-center gap-4 hover:-translate-y-2 bezier-transition" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center ghost-border group-hover:bg-[#EA4335] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#EA4335]/30 bezier-transition">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant group-hover:text-[#EA4335] bezier-transition">Gmail</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#081425] w-full py-12 px-8 border-t border-[#464554]/15">
+<div class="flex flex-col justify-center items-center max-w-7xl mx-auto gap-6">
+<div class="text-[#d8e3fb]/40 font-['Inter'] text-sm uppercase tracking-widest text-center">
+                © 2024 Wahidul Hasan. Crafted for The Ethereal Archive.
+            </div>
+</div>
+</footer>
+<script>
+    // Scroll Reveal Animation Logic
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target); // Stop observing once revealed
+                }
+            });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        revealElements.forEach(el => observer.observe(el));
+    });
+</script>
+</body></html>
