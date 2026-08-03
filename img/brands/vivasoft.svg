@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="Vivasoft">
+  <rect width="320" height="120" rx="24" fill="transparent"/>
+  <circle cx="70" cy="60" r="34" fill="#c0c1ff"/>
+  <path d="M54 42h32v36H54z" fill="#081425"/>
+  <path d="M72 42h10v36H72z" fill="#081425"/>
+</svg>
