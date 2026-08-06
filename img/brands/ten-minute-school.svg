@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-label="10 Minute School">
-  <rect width="360" height="120" rx="24" fill="transparent"/>
-  <circle cx="74" cy="60" r="32" fill="#c4abff"/>
-  <path d="M62 40h24v40H62z" fill="#081425"/>
-  <path d="M86 48h12v24H86z" fill="#081425"/>
-</svg>

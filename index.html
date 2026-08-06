@@ -128,8 +128,18 @@
             width: 200%;
             animation: marquee 25s linear infinite;
         }
-        .animate-marquee:hover {
+        .animate-marquee:hover,
+        .animate-marquee-reverse:hover {
             animation-play-state: paused;
+        }
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee-reverse{
+            display:flex;
+            width:200%;
+            animation: marquee-reverse 25s linear infinite;
         }
     </style>
 </head>
@@ -143,10 +153,29 @@
                 Wahidul Hasan
             </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#expertise">Expertise</a>
-<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#experience">Experience</a>
-<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#education">Education</a>
-<a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform" href="#projects">Projects</a>
+  <a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform"
+     href="#"
+     onclick="document.getElementById('expertise').scrollIntoView({behavior:'smooth'}); return false;">
+     Expertise
+  </a>
+
+  <a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform"
+     href="#"
+     onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'}); return false;">
+     Experience
+  </a>
+
+  <a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform"
+     href="#"
+     onclick="document.getElementById('education').scrollIntoView({behavior:'smooth'}); return false;">
+     Education
+  </a>
+
+  <a class="text-[#d8e3fb]/70 font-label text-sm uppercase tracking-widest hover:text-[#c0c1ff] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 transform"
+     href="#"
+     onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'}); return false;">
+     Projects
+  </a>
 </nav>
 <a href="#social">
 <button class="px-6 py-2.5 rounded-full ethereal-gradient text-on-primary-container font-bold tracking-tight active:scale-95 transform transition-transform text-sm md:text-base">
@@ -168,7 +197,7 @@
                         Wahidul <br class="hidden lg:block"/> Hasan
                     </h1>
 <p class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl mb-12">
-                        A digital curator for the ethereal age.
+                        Creating visuals that connect.
                     </p>
 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6">
 <a class="px-8 py-4 rounded-xl ethereal-gradient text-on-primary-container font-bold bezier-transition shadow-lg shadow-primary/20 hover:scale-105" href="#projects">View Projects</a>
@@ -290,45 +319,95 @@
 <h2 class="text-2xl lg:text-3xl font-bold font-headline tracking-tight text-on-surface-variant uppercase">Brands I've Worked With</h2>
 </div>
 </div>
-<div class="relative w-full overflow-hidden flex items-center py-8 before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-background before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
-<div class="animate-marquee">
+<div class="relative w-full overflow-hidden py-8 before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-background before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
+<div class="overflow-hidden mb-16"><div class="animate-marquee">
 <!-- First Set -->
 <div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/vivasoft.svg" alt="Vivasoft" class="h-10 w-auto object-contain" />
+  <img src="img/brands/vivasoft.png" alt="Vivasoft"  style="height:32px;"class="w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/web-kingdom.svg" alt="Web Kingdom" class="h-10 w-auto object-contain" />
+  <img src="img/brands/10minuteschool.png" alt="10 Minute School" class="h-10 w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/mojaru.svg" alt="Mojaru" class="h-10 w-auto object-contain" />
+  <img src="img/brands/ostad.png" alt="Ostad" class="h-10 w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/ten-minute-school.svg" alt="10 Minute School" class="h-10 w-auto object-contain" />
+  <img src="img/brands/webkingdom.png" alt="Web Kingdom" style="height:64px;"class="w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/nexus-co.svg" alt="Nexus Co" class="h-10 w-auto object-contain" />
+  <img src="img/brands/hamdard.png" alt="Hamdard" style="height:48px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/feast&fiesta.png" alt="Feast & Fiesta" style="height:64px;"class="w-auto object-contain" />
 </div>
 </div>
 <!-- Second Set (Duplicate for loop) -->
 <div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/vivasoft.svg" alt="Vivasoft" class="h-10 w-auto object-contain" />
+ <img src="img/brands/vivasoft.png" alt="Vivasoft" style="height:32px;"class="w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/web-kingdom.svg" alt="Web Kingdom" class="h-10 w-auto object-contain" />
+  <img src="img/brands/10minuteschool.png" alt="10 Minute School" class="h-10 w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/mojaru.svg" alt="Mojaru" class="h-10 w-auto object-contain" />
+  <img src="img/brands/ostad.png" alt="Ostad" class="h-10 w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/ten-minute-school.svg" alt="10 Minute School" class="h-10 w-auto object-contain" />
+ <img src="img/brands/webkingdom.png" alt="Web Kingdom" style="height:64px;"class="w-auto object-contain" />
 </div>
 <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
-  <img src="img/brands/nexus-co.svg" alt="Nexus Co" class="h-10 w-auto object-contain" />
+  <img src="img/brands/hamdard.png" alt="Hamdard" style="height:48px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/feast&fiesta.png" alt="Feast & Fiesta" style="height:64px;"class="w-auto object-contain" />
+</div>
+</div></div>
+<div class="overflow-hidden mt-12"><div class="animate-marquee-reverse">
+<!-- First Set -->
+<div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/cloudomnium.png" alt="Cloudomnium"  style="height:32px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/financfy.png" alt="Financfy" class="h-10 w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/mojaru.png" alt="Mojaru" class="h-10 w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/greenfeathertech.png" alt="Green Feather Tech" style="height:48px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/kindred.png" alt="Kindred" style="height:64px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/pihr.png" alt="Pihr" style="height:48px;"class="w-auto object-contain" />
+</div>
+
+</div>
+<!-- Second Set (Duplicate for loop) -->
+<div class="flex items-center justify-around w-1/2 min-w-max px-8 gap-20">
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/cloudomnium.png" alt="Cloudomnium"  style="height:48px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/financfy.png" alt="Financfy" class="h-10 w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/mojaru.png" alt="Mojaru" class="h-10 w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/greenfeathertech.png" alt="Green Feather Tech" style="height:48px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/kindred.png" alt="Kindred" style="height:64px;"class="w-auto object-contain" />
+</div>
+<div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 bezier-transition cursor-pointer">
+  <img src="img/brands/pihr.png" alt="Pihr" style="height:48px;"class="w-auto object-contain" />
 </div>
 </div>
-</div>
+</div></div>
 </div>
 </section>
 <!-- Expertise Section -->
@@ -414,8 +493,8 @@
 <div class="w-4 h-4 rounded-full bg-outline-variant group-hover:bg-primary group-hover:scale-125 bezier-transition"></div>
 </div>
 <div class="flex-1 group-hover:translate-x-2 bezier-transition">
-<span class="font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase group-hover:text-primary/80 bezier-transition">Previous</span>
-<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Designer</h3>
+<span class="font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase group-hover:text-primary/80 bezier-transition">2019-2022</span>
+<h3 class="text-2xl font-bold font-headline mt-2 mb-1">Design Specialist</h3>
 <p class="text-secondary font-medium mb-4">10 Minute School</p>
 <p class="text-on-surface-variant leading-relaxed">Collaborated with content creators to build engaging visual assets for the largest edtech platform in the country.</p>
 </div>
